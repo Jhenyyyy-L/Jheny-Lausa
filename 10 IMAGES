@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="gallery">
+  <a target="_blank" href="img/me1.jpg">
+    <img src="img/me1.jpg" alt="my picture" width="600" height="400">
+  </a>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img/me2.jpg">
+    <img src="img/me2.jpg" alt="my picture" width="600" height="400">
+  </a>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img/me3.jpg">
+    <img src="img/me3.jpg" alt="my picture" width="600" height="400">
+  </a>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img/me4.jpg">
+    <img src="img/me4.jpg" alt="my picture" width="600" height="400">
+  </a>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img/me5.jpg">
+    <img src="img/me5.jpg" alt="my picture" width="600" height="400">
+  </a>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img/me6.jpg">
+    <img src="img/me6.jpg" alt="my picture" width="600" height="400">
+  </a>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img/me7.jpg">
+    <img src="img/me7.jpg" alt="my picture" width="600" height="400">
+  </a>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img/me8.jpg">
+    <img src="img/me8.jpg" alt="my picture" width="600" height="400">
+  </a>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img/me9.jpg">
+    <img src="img/me9.jpg" alt="my picture" width="600" height="400">
+  </a>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img/me10.jpg">
+    <img src="img/me10.jpg" alt="my picture" width="600" height="400">
+  </a>
+</div>
+
+</body>
+</html>
