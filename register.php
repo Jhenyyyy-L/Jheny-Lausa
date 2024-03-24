@@ -3,21 +3,18 @@ include 'db_config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $student_id = $_POST['student_id'];
-    $first_name = $_POST['first_name'];
-    $middle_name = $_POST['middle_name'];
-    $last_name = $_POST['last_name'];
-    $dob = $_POST['dob'];
-    $age = $_POST['age'];
+    $full_name = $_POST['full_name'];
     $gender = $_POST['gender'];
-    $contact_number = $_POST['contact_number'];
     $email = $_POST['email'];
-    $username = $_POST['user_name'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
-    $address = $_POST['address'];
 
-    $sql = "INSERT INTO users (student_id, first_name, middle_name, last_name, dob, age, gender, contact_number, email, user_name, password, address) VALUES ('$student_id', '$first_name', '$middle_name', '$last_name', '$dob', '$age', '$gender', '$contact_number', '$email', '$username', '$password', '$address')";
+    // Update the SQL query to match the table structure
+    $sql = "INSERT INTO users (student_id, full_name, gender, email, username, password)
+     VALUES ('$student_id', '$full_name', '$gender', '$email', '$username', '$password')";
 
     if ($conn->query($sql) === TRUE) {
+        echo "<div style='background-color: #00ffa7; color: black; padding: 10px;'>New user registered successfully!</div>";
         header("Location: login.php");
         exit();
     } else {
@@ -227,32 +224,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input required="" type="text" id="student_id" name="student_id" class="input">
         </div>
         <div class="input-group">
-            <label class="label">First Name</label>
-            <input required="" type="text" id="first_name" name="first_name" class="input">
-        </div>
-        <div class="input-group">
-            <label class="label">Middle Name</label>
-            <input required="" type="text" id="middle_name" name="middle_name" class="input">
-        </div>
-        <div class="input-group">
-            <label class="label">Last Name</label>
-            <input required="" type="text" id="last_name" name="last_name" class="input">
-        </div>
-        <div class="input-group">
-            <label class="label">Date of Birth</label>
-            <input required="" type="date" id="dob" name="dob" class="input">
-        </div>
-        <div class="input-group">
-            <label class="label">Age</label>
-            <input required="" type="number" id="age" name="age" class="input">
+            <label class="label">Full Name</label>
+            <input required="" type="text" id="full_name" name="full_name" class="input">
         </div>
         <div class="input-group">
             <label class="label">Gender</label>
             <input required="" type="text" id="gender" name="gender" class="input">
-        </div>
-        <div class="input-group">
-            <label class="label">Contact Number</label>
-            <input required="" type="tel" id="contact_number" name="contact_number" class="input">
         </div>
         <div class="input-group">
             <label class="label">Email</label>
@@ -260,7 +237,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="input-group">
             <label class="label">Username</label>
-            <input required="" type="text" id="user_name" name="user_name" class="input">
+            <input required="" type="text" id="username" name="username" class="input">
         </div>
         <div class="input-group">
             <label class="label">Password</label>
@@ -270,10 +247,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label class="label">Confirm Password</label>
             <input required="" type="password" id="confirm_password" name="confirm_password" class="input">
             <span id="password_error" style="color: red;"></span>
-        </div>
-        <div class="input-group">
-            <label class="label">Address</label>
-            <input required="" type="address" id="address" name="address" class="input">
         </div>
         </center>
         <br>
