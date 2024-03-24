@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE user_name='$username'";
+    $sql = "SELECT * FROM users WHERE username='$username'";
     $result = $conn->query($sql);
 
     if ($result->num_rows == 1) {
@@ -141,11 +141,11 @@ a {
             <input autocomplete="off" name="password" id="password" class="input" type="password" required>
             <div></div>
         </div>
-        <button type="submit" name="login">Login</button>
+        <button class="submit" type="submit" name="login">Login</button>
     </form>
     <center>
     <p>Don't have an account? <a href="register.php">Register</a></p>
     </center>
 </div>
 </body>
-</html>  
+</html>
