@@ -1,3 +1,28 @@
+<?php
+include 'db_config.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['search'])) {
+    $searchTerm = $_GET['search'];
+
+    // Prepare and execute the SQL query
+    $sql = "SELECT * FROM users WHERE student_id LIKE '%$searchTerm%' OR full_name LIKE '%$searchTerm%'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Output data of each row
+        while ($row = $result->fetch_assoc()) {
+            echo "Student ID: " . $row["student_id"] . "<br>";
+            echo "Full Name: " . $row["full_name"] . "<br>";
+            echo "Gender: " . $row["gender"] . "<br>";
+            echo "Email: " . $row["email"] . "<br>";
+            echo "Username: " . $row["username"] . "<br><br>";
+        }
+    } else {
+        echo "No results found";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,10 +144,33 @@
                     <span class="nav-item">CCS SIT-IN MONITORING SYSTEM</span>
                 </a>
             </li>
-            <li><a href="#">
-                <i class="fas fa-magnifying-glass"></i>
-                <span class="nav-item">Search</span>
-            </a></li>
+            <li>
+    <a href="#" id="search-link">
+        <i class="fas fa-search"></i>
+        <span class="nav-item">Search</span>
+    </a>
+</li>
+
+<script>
+document.getElementById("search-link").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent default link behavior
+
+    // Prompt the user for search input
+    var searchTerm = prompt("Enter the search term:");
+
+    // Make AJAX request only if search term is provided
+    if (searchTerm) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "search.php?search=" + searchTerm, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                alert(xhr.responseText); // Display the result (you can replace this with more sophisticated display logic)
+            }
+        };
+        xhr.send();
+    }
+});
+</script>
             <li><a href="#">
                 <i class="fas fa-trash"></i>
                 <span class="nav-item">Delete</span>
